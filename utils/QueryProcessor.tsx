@@ -91,7 +91,7 @@ const sub = query.match(/What is (\d+) minus (\d+)/);
   }
 
   const p = query.match(/(\d+), (\d+), (\d+), (\d+), (\d+)/);
-  if (p) {
+if (p) {
   const a: number = parseInt(p[1]);
   const b: number = parseInt(p[2]);
   const c: number = parseInt(p[3]);
@@ -105,6 +105,15 @@ const sub = query.match(/What is (\d+) minus (\d+)/);
       if (num % i === 0) return false;
     }
     return true;
+  };
+
+  // Check each number and filter the primes
+  const primes = [a, b, c, d, e].filter(isPrime);
+
+  if (primes.length > 0) {
+    return primes.join(", ");
+  } else {
+    return "None of the numbers are prime";
   }
 }
 
