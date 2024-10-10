@@ -146,11 +146,11 @@ if (mathQuery) {
 
 const m = query.match(/What is (\d+)\s+plus\s+(\d+)\s+multiplied by\s+(\d+)\s*\?/);
 if (m) {
-  const x: number = parseInt(m[1]);
-  const y: number = parseInt(m[2]);
-  const z: number = parseInt(m[3]);
+  const x: number = parseInt(m[1]); // First number (11)
+  const y: number = parseInt(m[2]); // Second number (2)
+  const z: number = parseInt(m[3]); // Third number (10)
 
-  // Perform multiplication first, then addition (order of operations)
+  // Perform multiplication first, then addition
   const result = x + (y * z);
 
   return result.toString();
