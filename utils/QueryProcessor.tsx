@@ -49,5 +49,33 @@ export default function QueryProcessor(query: string): string {
   }
 
 
+const sc = query.match(/(\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+)/);
+if (sc) {
+  const a: number = parseInt(sc[1]);
+  const b: number = parseInt(sc[2]);
+  const c: number = parseInt(sc[3]);
+  const d: number = parseInt(sc[4]);
+  const e: number = parseInt(sc[5]);
+  const f: number = parseInt(sc[6]);
+  const g: number = parseInt(sc[7]);
+
+  // Function to check if a number is both a perfect square and a perfect cube
+  const isSquareAndCube = (num: number): boolean => {
+    const sqrt = Math.sqrt(num);
+    const cbrt = Math.cbrt(num);
+    return sqrt % 1 === 0 && cbrt % 1 === 0;
+  };
+
+  // Check each number and return the one that satisfies both conditions
+  const result = [a, b, c, d, e, f, g].find(isSquareAndCube);
+
+  if (result !== undefined) {
+    return result.toString();
+  } else {
+    return "None of the numbers is both a square and a cube";
+  }
+}
+
+
     return "";
     }
