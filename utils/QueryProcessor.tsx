@@ -26,14 +26,20 @@ export default function QueryProcessor(query: string): string {
   }
 
   
-    if (query.toLowerCase().includes("plus")) {
-      const parts = query.toLowerCase().split(" ");
-      const num1 = parseInt(parts[2], 10); // Extract the first number
-      const num2 = parseInt(parts[4], 10); // Extract the second number
-  
-      if (!isNaN(num1) && !isNaN(num2))
-        return (`${num1 + num2}`);
-    }
+  const addMatch = query.match(/What is (\d+) plus (\d+)/);
+  if (addMatch) {
+    const x: number = parseInt(addMatch[1]);
+    const y: number = parseInt(addMatch[2]);
+    return (x+y).toString();
+  }
+
+  const largest = query.match(/following numbers is the largest: (\d+), (\d+), (\d+)/);
+  if (largest) {
+    const x: number = parseInt(largest[1]);
+    const y: number = parseInt(largest[2]);
+    const z: number = parseInt(largest[3]);
+    return (Math.max(x,Math.max(y,z))).toString();
+  }
 
 
     return "";
