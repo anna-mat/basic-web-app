@@ -117,5 +117,12 @@ if (p) {
   }
 }
 
+const pow = query.match(/What is (\d+) to the power of (\d+)/);
+if (pow) {
+  const x: number = parseInt(pow[1]);
+  const y: number = parseInt(pow[2]);
+  return (Math.pow(x,y)).toString();
+}
+
     return "";
     }
