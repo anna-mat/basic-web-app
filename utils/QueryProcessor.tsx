@@ -132,5 +132,29 @@ if (pow) {
   return (Math.pow(x,y)).toString();
 }
 
+const mathQuery = query.match(/What is (\d+)\s+multiplied by\s+(\d+)\s+plus\s+(\d+)\s*\?/);
+if (mathQuery) {
+  const x: number = parseInt(mathQuery[1]);
+  const y: number = parseInt(mathQuery[2]);
+  const z: number = parseInt(mathQuery[3]);
+
+  // Perform the multiplication and addition
+  const result = (x * y) + z;
+
+  return result.toString();
+}
+
+const m = query.match(/What is (\d+)\s+plus\s+(\d+)\s+multiplied by\s+(\d+)\s*\?/);
+if (m) {
+  const x: number = parseInt(m[1]);
+  const y: number = parseInt(m[2]);
+  const z: number = parseInt(m[3]);
+
+  // Perform multiplication first, then addition (order of operations)
+  const result = x + (y * z);
+
+  return result.toString();
+}
+
     return "";
     }
