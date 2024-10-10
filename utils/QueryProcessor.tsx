@@ -117,6 +117,14 @@ if (p) {
   }
 }
 
+const add = query.match(/What is (\d+) plus (\d+) plus (\d+)/);
+  if (add) {
+    const x: number = parseInt(add[1]);
+    const y: number = parseInt(add[2]);
+    const z: number = parseInt(add[3]);
+    return (x+y+z).toString();
+  }
+
 const pow = query.match(/What is (\d+) to the power of (\d+)/);
 if (pow) {
   const x: number = parseInt(pow[1]);
