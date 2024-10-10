@@ -76,6 +76,37 @@ if (sc) {
   }
 }
 
+const sub = query.match(/What is (\d+) minus (\d+)/);
+  if (sub) {
+    const x: number = parseInt(sub[1]);
+    const y: number = parseInt(sub[2]);
+    return (x-y).toString();
+  }
+
+  const divide = query.match(/What is (\d+) divided by (\d+)/);
+  if (divide) {
+    const x: number = parseInt(divide[1]);
+    const y: number = parseInt(divide[2]);
+    return (x/y).toString();
+  }
+
+  const p = query.match(/(\d+), (\d+), (\d+), (\d+), (\d+)/);
+  if (p) {
+  const a: number = parseInt(p[1]);
+  const b: number = parseInt(p[2]);
+  const c: number = parseInt(p[3]);
+  const d: number = parseInt(p[4]);
+  const e: number = parseInt(p[5]);
+
+  // Function to check if a number is prime
+  const isPrime = (num: number): boolean => {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+}
 
     return "";
     }
